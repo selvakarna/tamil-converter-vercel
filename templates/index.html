@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Converter - Text & Audio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 Tamil Text & Audio Converter</h1>
+        <p class="subtitle">Upload an image or take a picture with text in English, Telugu, Hindi, Kannada, or Malayalam</p>
+
+        <div class="upload-section">
+            <div class="camera-container">
+                <video id="video" autoplay playsinline style="display: none;"></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="preview" id="preview">
+                    <img id="preview-img" src="" alt="Preview" style="display: none; max-width: 100%;">
+                </div>
+                <div class="buttons">
+                    <button id="upload-btn" class="btn">📁 Upload Image</button>
+                    <button id="camera-btn" class="btn">📷 Take Picture</button>
+                    <button id="capture-btn" class="btn" style="display: none;">✅ Capture</button>
+                    <button id="retake-btn" class="btn" style="display: none;">🔄 Retake</button>
+                </div>
+                <input type="file" id="file-input" accept="image/*" style="display: none;">
+            </div>
+        </div>
+
+        <div class="processing" id="processing" style="display: none;">
+            <div class="spinner"></div>
+            <p>Processing image...</p>
+        </div>
+
+        <div class="results" id="results" style="display: none;">
+            <h2>📄 Results</h2>
+
+            <div class="result-box">
+                <h3>Original Text:</h3>
+                <div id="original-text" class="text-box"></div>
+            </div>
+
+            <div class="result-box">
+                <h3>Tamil Translation:</h3>
+                <div id="tamil-text" class="text-box"></div>
+                <button id="copy-tamil" class="btn-small">📋 Copy Text</button>
+            </div>
+
+            <div class="result-box">
+                <h3>Tamil Audio:</h3>
+                <audio id="audio-player" controls style="width: 100%;"></audio>
+                <button id="download-audio" class="btn-small">⬇️ Download Audio</button>
+            </div>
+
+            <button id="new-conversion" class="btn">🔄 New Conversion</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a35efdf3cbb97e7e',t:'MTc4ODU0NTg1Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
